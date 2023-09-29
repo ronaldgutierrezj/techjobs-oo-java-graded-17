@@ -14,7 +14,9 @@ public class Main {
 //        for (Job job : jobs){
 //            System.out.println(job);
 //        }
+        Job jobx = new Job("Web Developer", new Employer(), new Location("StL"), new PositionType(), new CoreCompetency("Java"));
 
+        System.out.println(jobx);
     }
 
 }

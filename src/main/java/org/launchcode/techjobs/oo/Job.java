@@ -103,10 +103,10 @@ public class Job {
         String allFieldsEmpty = "OOPS! This job does not seem to exist." + newLine;
         String atLeastOneFieldIsNotEmpty =  "ID: " + id + newLine +
                                             "Name: " + (name.isEmpty()? fieldEmpty :  name + newLine) +
-                                            "Employer: " + (getEmployer().getValue()== null? fieldEmpty : getEmployer().getValue() + newLine) +
-                                            "Location: " + (getLocation().getValue()== null? fieldEmpty : getLocation().getValue() + newLine) +
-                                            "Position Type: " + (getPositionType().getValue()== null? fieldEmpty : getPositionType().getValue() + newLine) +
-                                            "Core Competency: " + (getCoreCompetency().getValue()== null? fieldEmpty : getCoreCompetency().getValue() + newLine);
+                                            "Employer: " + (getEmployer().getValue()== null || getEmployer().getValue().isEmpty()? fieldEmpty : getEmployer().getValue() + newLine) +
+                                            "Location: " + (getLocation().getValue()== null || getLocation().getValue().isEmpty()? fieldEmpty : getLocation().getValue() + newLine) +
+                                            "Position Type: " + (getPositionType().getValue()== null|| getPositionType().getValue().isEmpty()? fieldEmpty : getPositionType().getValue() + newLine) +
+                                            "Core Competency: " + (getCoreCompetency().getValue()== null || getCoreCompetency().getValue().isEmpty()? fieldEmpty : getCoreCompetency().getValue() + newLine);
 
 
         return newLine +(name.isEmpty() && getEmployer().getValue()== null && getLocation().getValue()== null && getPositionType().getValue()== null && getCoreCompetency().getValue()== null? allFieldsEmpty : atLeastOneFieldIsNotEmpty);

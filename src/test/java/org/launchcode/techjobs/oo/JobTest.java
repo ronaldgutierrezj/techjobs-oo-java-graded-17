@@ -35,7 +35,7 @@ public class JobTest {
     };
 
     @Test
-    public void estJobsForEquality(){
+    public void testJobsForEquality(){
         Job sample3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         Job sample4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
