@@ -101,15 +101,26 @@ public class Job {
         String fieldEmpty = "Data not available" + newLine;
 
         String allFieldsEmpty = "OOPS! This job does not seem to exist." + newLine;
-        String atLeastOneFieldIsNotEmpty =  "ID: " + id + newLine +
-                                            "Name: " + (name.isEmpty()? fieldEmpty :  name + newLine) +
-                                            "Employer: " + (getEmployer().getValue()== null || getEmployer().getValue().isEmpty()? fieldEmpty : getEmployer().getValue() + newLine) +
-                                            "Location: " + (getLocation().getValue()== null || getLocation().getValue().isEmpty()? fieldEmpty : getLocation().getValue() + newLine) +
-                                            "Position Type: " + (getPositionType().getValue()== null|| getPositionType().getValue().isEmpty()? fieldEmpty : getPositionType().getValue() + newLine) +
-                                            "Core Competency: " + (getCoreCompetency().getValue()== null || getCoreCompetency().getValue().isEmpty()? fieldEmpty : getCoreCompetency().getValue() + newLine);
+//        String atLeastOneFieldIsNotEmpty =  "ID: " + id + newLine +
+//                                            "Name: " + (getName().isEmpty()? fieldEmpty :  getName() + newLine) +
+//                                            "Employer: " + (getEmployer().getValue()== null || getEmployer().getValue().isEmpty()? fieldEmpty : getEmployer().getValue() + newLine) +
+//                                            "Location: " + (getLocation().getValue()== null || getLocation().getValue().isEmpty()? fieldEmpty : getLocation().getValue() + newLine) +
+//                                            "Position Type: " + (getPositionType().getValue()== null|| getPositionType().getValue().isEmpty()? fieldEmpty : getPositionType().getValue() + newLine) +
+//                                            "Core Competency: " + (getCoreCompetency().getValue()== null || getCoreCompetency().getValue().isEmpty()? fieldEmpty : getCoreCompetency().getValue() + newLine);
 
 
-        return newLine +(name.isEmpty() && getEmployer().getValue()== null && getLocation().getValue()== null && getPositionType().getValue()== null && getCoreCompetency().getValue()== null? allFieldsEmpty : atLeastOneFieldIsNotEmpty);
+//        return newLine +((getName().isEmpty() || getName().equals("null")) && (getEmployer()== null || getEmployer().getValue().isEmpty()) && (getLocation()== null || getLocation().getValue().isEmpty()) && (getPositionType()== null|| getPositionType().getValue().isEmpty()) && (getCoreCompetency() == null || getCoreCompetency().getValue().isEmpty())? allFieldsEmpty : atLeastOneFieldIsNotEmpty);
+        if (getName() == null && getEmployer() == null && getLocation() == null && getPositionType() == null && getCoreCompetency() == null){
+            return newLine + allFieldsEmpty;
+        } else {
+            return newLine +
+                    "ID: " + id + newLine +
+                    "Name: " + (getName().isEmpty()? fieldEmpty :  getName() + newLine) +
+                    "Employer: " + (getEmployer().getValue()== null || getEmployer().getValue().isEmpty()? fieldEmpty : getEmployer().getValue() + newLine) +
+                    "Location: " + (getLocation().getValue()== null || getLocation().getValue().isEmpty()? fieldEmpty : getLocation().getValue() + newLine) +
+                    "Position Type: " + (getPositionType().getValue()== null|| getPositionType().getValue().isEmpty()? fieldEmpty : getPositionType().getValue() + newLine) +
+                    "Core Competency: " + (getCoreCompetency().getValue()== null || getCoreCompetency().getValue().isEmpty()? fieldEmpty : getCoreCompetency().getValue() + newLine);
+        }
 
     }
 }

@@ -63,7 +63,7 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField(){
-        Job sample3 = new Job("Product tester", new Employer(), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job sample3 = new Job("Product tester",new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String newLine = System.lineSeparator();
         String textToPrint = newLine + "ID: " + sample3.getId() + newLine + "Name: " + sample3.getName() + newLine + "Employer: " + "Data not available" + newLine + "Location: " + sample3.getLocation().getValue() + newLine + "Position Type: " + sample3.getPositionType().getValue() + newLine + "Core Competency: " + sample3.getCoreCompetency().getValue() + newLine;
 
@@ -73,7 +73,7 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesAllEmptyFields(){
-        Job sample3 = new Job("", new Employer(), new Location(), new PositionType(), new CoreCompetency());
+        Job sample3 = new Job();
         String newLine = System.lineSeparator();
         String textToPrint = newLine + "OOPS! This job does not seem to exist." + newLine;
 
